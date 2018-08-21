@@ -7,11 +7,11 @@
     }).done(function (data) {
         var $ul = $('<ul></ul>');
         $ul.addClass('bulleted');
-        for (var i = 0; i < data.length; i++) {
-            var $li = $('<li></li>').text(data[i].name);
-            $li.addClass(data[i].inoffice ? 'in' : 'out');
+        data.forEach(function(element) {
+            var $li = $('<li></li>').text(element.name);
+            $li.addClass(element.inoffice ? 'in' : 'out');
             $ul.append($li);
-        }
+        });
         $('#employeeList').append($ul);
     });
 
